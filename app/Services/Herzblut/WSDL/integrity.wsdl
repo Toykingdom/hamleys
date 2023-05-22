@@ -1,0 +1,790 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns1="urn:UIntegTypes"
+             name="IIntegWebServiceservice" targetNamespace="http://tempuri.org/">
+    <types>
+        <xs:schema xmlns="urn:UIntegTypes" targetNamespace="urn:UIntegTypes">
+            <xs:complexType name="TStoreStockArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TStoreStockType[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TStoreStockType">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="ItemCode" type="xs:string"/>
+                    <xs:element name="Description" type="xs:string"/>
+                    <xs:element name="FullDescription" type="xs:string"/>
+                    <xs:element name="Category1" type="xs:string"/>
+                    <xs:element name="Category2" type="xs:string"/>
+                    <xs:element name="Category3" type="xs:string"/>
+                    <xs:element name="Category4" type="xs:string"/>
+                    <xs:element name="Userfield1" type="xs:string"/>
+                    <xs:element name="Userfield2" type="xs:string"/>
+                    <xs:element name="Brand" type="xs:string"/>
+                    <xs:element name="ExclSellPrice" type="xs:double"/>
+                    <xs:element name="InclSellPrice" type="xs:double"/>
+                    <xs:element name="ExclPromoPrice" type="xs:double"/>
+                    <xs:element name="InclPromoPrice" type="xs:double"/>
+                    <xs:element name="AliasCode" type="xs:string"/>
+                    <xs:element name="Image" type="xs:string"/>
+                    <xs:element name="Note" type="xs:string"/>
+                    <xs:element name="Sizes" type="ns1:TSizeArray"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TSizeArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TSize[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TSize">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="ColourCode" type="xs:string"/>
+                    <xs:element name="ColourDescription" type="xs:string"/>
+                    <xs:element name="SizeCode" type="xs:string"/>
+                    <xs:element name="SizeDescription" type="xs:string"/>
+                    <xs:element name="Stores" type="ns1:TStoreArray"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TStoreArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TStoreSOH[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TStoreSOH">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="ID" type="xs:int"/>
+                    <xs:element name="Qty" type="xs:double"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TStockArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TStockType[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TStockType">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="ItemCode" type="xs:string"/>
+                    <xs:element name="Description" type="xs:string"/>
+                    <xs:element name="FullDescription" type="xs:string"/>
+                    <xs:element name="Category1" type="xs:string"/>
+                    <xs:element name="Category2" type="xs:string"/>
+                    <xs:element name="Category3" type="xs:string"/>
+                    <xs:element name="Category4" type="xs:string"/>
+                    <xs:element name="Userfield1" type="xs:string"/>
+                    <xs:element name="Userfield2" type="xs:string"/>
+                    <xs:element name="Brand" type="xs:string"/>
+                    <xs:element name="StoreID" type="xs:string"/>
+                    <xs:element name="ColourCode" type="xs:string"/>
+                    <xs:element name="ColourDescription" type="xs:string"/>
+                    <xs:element name="SizeCode" type="xs:string"/>
+                    <xs:element name="SizeDescription" type="xs:string"/>
+                    <xs:element name="QtyAvailable" type="xs:double"/>
+                    <xs:element name="ExclSellPrice" type="xs:double"/>
+                    <xs:element name="InclSellPrice" type="xs:double"/>
+                    <xs:element name="ExclPromoPrice" type="xs:double"/>
+                    <xs:element name="InclPromoPrice" type="xs:double"/>
+                    <xs:element name="AliasCode" type="xs:string"/>
+                    <xs:element name="Image" type="xs:string"/>
+                    <xs:element name="Note" type="xs:string"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TStockAvailableArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TStockAvailableType[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TStockAvailableType">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="ItemCode" type="xs:string"/>
+                    <xs:element name="ColourCode" type="xs:string"/>
+                    <xs:element name="ColourDescription" type="xs:string"/>
+                    <xs:element name="SizeCode" type="xs:string"/>
+                    <xs:element name="SizeDescription" type="xs:string"/>
+                    <xs:element name="StoreID" type="xs:string"/>
+                    <xs:element name="QtyAvailable" type="xs:double"/>
+                    <xs:element name="ExclSellPrice" type="xs:double"/>
+                    <xs:element name="InclSellPrice" type="xs:double"/>
+                    <xs:element name="ExclPromoPrice" type="xs:double"/>
+                    <xs:element name="InclPromoPrice" type="xs:double"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TCustomer">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="Accountcode" type="xs:string"/>
+                    <xs:element name="Title" type="xs:string"/>
+                    <xs:element name="Initials" type="xs:string"/>
+                    <xs:element name="Surname" type="xs:string"/>
+                    <xs:element name="ContactName" type="xs:string"/>
+                    <xs:element name="IDNumber" type="xs:string"/>
+                    <xs:element name="DateOfBirth" type="xs:string"/>
+                    <xs:element name="ResidentialAddressLine1" type="xs:string"/>
+                    <xs:element name="ResidentialAddressLine2" type="xs:string"/>
+                    <xs:element name="ResidentialSuburb" type="xs:string"/>
+                    <xs:element name="ResidentialTown" type="xs:string"/>
+                    <xs:element name="ResidentialPostalCode" type="xs:string"/>
+                    <xs:element name="PostalAddressLine1" type="xs:string"/>
+                    <xs:element name="PostalAddressLine2" type="xs:string"/>
+                    <xs:element name="PostalSuburb" type="xs:string"/>
+                    <xs:element name="PostalTown" type="xs:string"/>
+                    <xs:element name="PostalCode" type="xs:string"/>
+                    <xs:element name="MobileNo" type="xs:string"/>
+                    <xs:element name="EmailAddress" type="xs:string"/>
+                    <xs:element name="UserField1" type="xs:string"/>
+                    <xs:element name="UserField2" type="xs:string"/>
+                    <xs:element name="CustomerType" type="xs:int"/>
+                    <xs:element name="LoyaltyPoints" type="xs:int"/>
+                    <xs:element name="LoyaltyPointsValue" type="xs:double"/>
+                    <xs:element name="LoyaltyDiscount" type="xs:double"/>
+                    <xs:element name="LoyaltyID" type="xs:int"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TCustomerResult">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="Accountcode" type="xs:string"/>
+                    <xs:element name="Resultcode" type="xs:int"/>
+                    <xs:element name="ResultMessege" type="xs:string"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TStockSaleArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TStockSaleType[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TStockSaleType">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="ItemCode" type="xs:string"/>
+                    <xs:element name="ColourCode" type="xs:string"/>
+                    <xs:element name="SizeCode" type="xs:string"/>
+                    <xs:element name="Qty" type="xs:double"/>
+                    <xs:element name="InclSellPrice" type="xs:double"/>
+                    <xs:element name="IsGiftCard" type="xs:boolean"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TTenderArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TTender[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TTender">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="Tender" type="xs:string"/>
+                    <xs:element name="Reference" type="xs:string"/>
+                    <xs:element name="Amount" type="xs:double"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TInvoiceResult">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="InvoiceNo" type="xs:string"/>
+                    <xs:element name="Accountcode" type="xs:string"/>
+                    <xs:element name="Resultcode" type="xs:int"/>
+                    <xs:element name="ResultMessege" type="xs:string"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TOrderResult">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="OrderNo" type="xs:string"/>
+                    <xs:element name="Accountcode" type="xs:string"/>
+                    <xs:element name="Resultcode" type="xs:int"/>
+                    <xs:element name="ResultMessege" type="xs:string"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TQueryResult">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="xs:string[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TGiftCardType">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="CardNumber" type="xs:string"/>
+                    <xs:element name="CardDescription" type="xs:string"/>
+                    <xs:element name="Balance" type="xs:double"/>
+                    <xs:element name="Status" type="xs:string"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TGiftCardArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TGiftCardType[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TGiftCardAuditType">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="CardNumber" type="xs:string"/>
+                    <xs:element name="Balance" type="xs:double"/>
+                    <xs:element name="Status" type="xs:string"/>
+                    <xs:element name="Documents" type="ns1:TGiftCardAuditDocumentArray"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TGiftCardAuditDocumentArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TGiftCardAuditDocument[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TGiftCardAuditDocument">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="Store" type="xs:string"/>
+                    <xs:element name="Date" type="xs:string"/>
+                    <xs:element name="Time" type="xs:string"/>
+                    <xs:element name="Description" type="xs:string"/>
+                    <xs:element name="Amount" type="xs:double"/>
+                </sequence>
+            </xs:complexType>
+            <xs:complexType name="TTenderTypesArray">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+                        <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" ref="soapenc:arrayType"
+                                      n1:arrayType="ns1:TTenderTypes[]"/>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TTenderTypes">
+                <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="Tender" type="xs:string"/>
+                </sequence>
+            </xs:complexType>
+        </xs:schema>
+    </types>
+    <message name="Status0Request"/>
+    <message name="Status0Response">
+        <part name="return" type="xs:string"/>
+    </message>
+    <message name="StockListAll1Request">
+        <part name="NonZeroOnly" type="xs:int"/>
+        <part name="LastCode" type="xs:string"/>
+    </message>
+    <message name="StockListAll1Response">
+        <part name="return" type="ns1:TStoreStockArray"/>
+    </message>
+    <message name="StockList2Request">
+        <part name="NonZeroOnly" type="xs:int"/>
+    </message>
+    <message name="StockList2Response">
+        <part name="return" type="ns1:TStockArray"/>
+    </message>
+    <message name="StockListColourSize3Request">
+        <part name="NonZeroOnly" type="xs:int"/>
+    </message>
+    <message name="StockListColourSize3Response">
+        <part name="return" type="ns1:TStockArray"/>
+    </message>
+    <message name="StockAvailable4Request">
+        <part name="ItemCode" type="xs:string"/>
+        <part name="ColourCode" type="xs:string"/>
+        <part name="SizeCode" type="xs:string"/>
+    </message>
+    <message name="StockAvailable4Response">
+        <part name="return" type="ns1:TStockAvailableArray"/>
+    </message>
+    <message name="GetCustomer5Request">
+        <part name="accountNo" type="xs:string"/>
+        <part name="mobileNo" type="xs:string"/>
+    </message>
+    <message name="GetCustomer5Response">
+        <part name="return" type="ns1:TCustomer"/>
+    </message>
+    <message name="AddCustomer6Request">
+        <part name="CustomerRec" type="ns1:TCustomer"/>
+    </message>
+    <message name="AddCustomer6Response">
+        <part name="return" type="ns1:TCustomerResult"/>
+    </message>
+    <message name="AddSale7Request">
+        <part name="AutoCreateCustomer" type="xs:boolean"/>
+        <part name="OrderNumber" type="xs:string"/>
+        <part name="CustomerRec" type="ns1:TCustomer"/>
+        <part name="Items" type="ns1:TStockSaleArray"/>
+        <part name="Tenders" type="ns1:TTenderArray"/>
+    </message>
+    <message name="AddSale7Response">
+        <part name="return" type="ns1:TInvoiceResult"/>
+    </message>
+    <message name="AddRefund8Request">
+        <part name="AutoCreateCustomer" type="xs:boolean"/>
+        <part name="OrderNumber" type="xs:string"/>
+        <part name="CustomerRec" type="ns1:TCustomer"/>
+        <part name="Items" type="ns1:TStockSaleArray"/>
+        <part name="Tenders" type="ns1:TTenderArray"/>
+    </message>
+    <message name="AddRefund8Response">
+        <part name="return" type="ns1:TInvoiceResult"/>
+    </message>
+    <message name="AddOrder9Request">
+        <part name="AutoCreateCustomer" type="xs:boolean"/>
+        <part name="OrderNumber" type="xs:string"/>
+        <part name="CustomerRec" type="ns1:TCustomer"/>
+        <part name="Items" type="ns1:TStockSaleArray"/>
+        <part name="Tenders" type="ns1:TTenderArray"/>
+        <part name="loyalty" type="xs:int"/>
+    </message>
+    <message name="AddOrder9Response">
+        <part name="return" type="ns1:TOrderResult"/>
+    </message>
+    <message name="CancelOrder10Request">
+        <part name="OriginalOrderNumber" type="xs:string"/>
+        <part name="Tenders" type="ns1:TTenderArray"/>
+    </message>
+    <message name="CancelOrder10Response">
+        <part name="return" type="ns1:TOrderResult"/>
+    </message>
+    <message name="CustomQuery11Request">
+        <part name="Query" type="xs:string"/>
+    </message>
+    <message name="CustomQuery11Response">
+        <part name="return" type="ns1:TQueryResult"/>
+    </message>
+    <message name="GetImage12Request">
+        <part name="ItemCode" type="xs:string"/>
+    </message>
+    <message name="GetImage12Response">
+        <part name="return" type="xs:string"/>
+    </message>
+    <message name="GetNotes13Request">
+        <part name="ItemCode" type="xs:string"/>
+    </message>
+    <message name="GetNotes13Response">
+        <part name="return" type="xs:string"/>
+    </message>
+    <message name="GiftCardPurchase14Request"/>
+    <message name="GiftCardPurchase14Response">
+        <part name="return" type="ns1:TGiftCardType"/>
+    </message>
+    <message name="GiftCardCancelPurchase15Request">
+        <part name="CardNumber" type="xs:string"/>
+    </message>
+    <message name="GiftCardCancelPurchase15Response">
+        <part name="return" type="xs:string"/>
+    </message>
+    <message name="GiftCardsAvailable16Request"/>
+    <message name="GiftCardsAvailable16Response">
+        <part name="return" type="ns1:TGiftCardArray"/>
+    </message>
+    <message name="GiftCardBalance17Request">
+        <part name="CardNumber" type="xs:string"/>
+    </message>
+    <message name="GiftCardBalance17Response">
+        <part name="return" type="ns1:TGiftCardType"/>
+    </message>
+    <message name="GiftCardAudit18Request">
+        <part name="CardNumber" type="xs:string"/>
+    </message>
+    <message name="GiftCardAudit18Response">
+        <part name="return" type="ns1:TGiftCardAuditType"/>
+    </message>
+    <message name="GetTenderTypes19Request"/>
+    <message name="GetTenderTypes19Response">
+        <part name="return" type="ns1:TTenderTypesArray"/>
+    </message>
+    <portType name="IIntegWebService">
+        <operation name="Status">
+            <input message="tns:Status0Request"/>
+            <output message="tns:Status0Response"/>
+        </operation>
+        <operation name="StockListAll">
+            <input message="tns:StockListAll1Request"/>
+            <output message="tns:StockListAll1Response"/>
+        </operation>
+        <operation name="StockList">
+            <input message="tns:StockList2Request"/>
+            <output message="tns:StockList2Response"/>
+        </operation>
+        <operation name="StockListColourSize">
+            <input message="tns:StockListColourSize3Request"/>
+            <output message="tns:StockListColourSize3Response"/>
+        </operation>
+        <operation name="StockAvailable">
+            <input message="tns:StockAvailable4Request"/>
+            <output message="tns:StockAvailable4Response"/>
+        </operation>
+        <operation name="GetCustomer">
+            <input message="tns:GetCustomer5Request"/>
+            <output message="tns:GetCustomer5Response"/>
+        </operation>
+        <operation name="AddCustomer">
+            <input message="tns:AddCustomer6Request"/>
+            <output message="tns:AddCustomer6Response"/>
+        </operation>
+        <operation name="AddSale">
+            <input message="tns:AddSale7Request"/>
+            <output message="tns:AddSale7Response"/>
+        </operation>
+        <operation name="AddRefund">
+            <input message="tns:AddRefund8Request"/>
+            <output message="tns:AddRefund8Response"/>
+        </operation>
+        <operation name="AddOrder">
+            <input message="tns:AddOrder9Request"/>
+            <output message="tns:AddOrder9Response"/>
+        </operation>
+        <operation name="CancelOrder">
+            <input message="tns:CancelOrder10Request"/>
+            <output message="tns:CancelOrder10Response"/>
+        </operation>
+        <operation name="CustomQuery">
+            <input message="tns:CustomQuery11Request"/>
+            <output message="tns:CustomQuery11Response"/>
+        </operation>
+        <operation name="GetImage">
+            <input message="tns:GetImage12Request"/>
+            <output message="tns:GetImage12Response"/>
+        </operation>
+        <operation name="GetNotes">
+            <input message="tns:GetNotes13Request"/>
+            <output message="tns:GetNotes13Response"/>
+        </operation>
+        <operation name="GiftCardPurchase">
+            <input message="tns:GiftCardPurchase14Request"/>
+            <output message="tns:GiftCardPurchase14Response"/>
+        </operation>
+        <operation name="GiftCardCancelPurchase">
+            <input message="tns:GiftCardCancelPurchase15Request"/>
+            <output message="tns:GiftCardCancelPurchase15Response"/>
+        </operation>
+        <operation name="GiftCardsAvailable">
+            <input message="tns:GiftCardsAvailable16Request"/>
+            <output message="tns:GiftCardsAvailable16Response"/>
+        </operation>
+        <operation name="GiftCardBalance">
+            <input message="tns:GiftCardBalance17Request"/>
+            <output message="tns:GiftCardBalance17Response"/>
+        </operation>
+        <operation name="GiftCardAudit">
+            <input message="tns:GiftCardAudit18Request"/>
+            <output message="tns:GiftCardAudit18Response"/>
+        </operation>
+        <operation name="GetTenderTypes">
+            <input message="tns:GetTenderTypes19Request"/>
+            <output message="tns:GetTenderTypes19Response"/>
+        </operation>
+    </portType>
+    <binding name="IIntegWebServicebinding" type="tns:IIntegWebService">
+        <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc"
+                 transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="Status">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#Status" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="StockListAll">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#StockListAll" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="StockList">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#StockList" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="StockListColourSize">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#StockListColourSize" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="StockAvailable">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#StockAvailable" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GetCustomer">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GetCustomer" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="AddCustomer">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#AddCustomer" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="AddSale">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#AddSale" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="AddRefund">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#AddRefund" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="AddOrder">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#AddOrder" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="CancelOrder">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#CancelOrder" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="CustomQuery">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#CustomQuery" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GetImage">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GetImage" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GetNotes">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GetNotes" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GiftCardPurchase">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GiftCardPurchase" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GiftCardCancelPurchase">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GiftCardCancelPurchase" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GiftCardsAvailable">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GiftCardsAvailable" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GiftCardBalance">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GiftCardBalance" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GiftCardAudit">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GiftCardAudit" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GetTenderTypes">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                       soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GetTenderTypes" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                      namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="IIntegWebServiceservice">
+        <port name="IIntegWebServicePort" binding="tns:IIntegWebServicebinding">
+            <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="http://41.193.68.242:8090/soap/IIntegWebService"/>
+        </port>
+    </service>
+</definitions>
